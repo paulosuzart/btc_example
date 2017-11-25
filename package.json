@@ -1,0 +1,28 @@
+{
+  "name": "ts_di",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn && yarn build && yarn watch",
+    "build": "yarn build-ts && yarn tslint",
+    "serve": "nodemon dist/index.js",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"yarn watch-ts\" \"yarn serve\"",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "tslint": "tslint -c tslint.json -p tsconfig.json"
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "reflect-metadata": "^0.1.10",
+    "typed-rest-client": "^0.14.2",
+    "typedi": "^0.6.0",
+    "typescript": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.53",
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.12.1",
+    "tslint": "^5.8.0"
+  }
+}
