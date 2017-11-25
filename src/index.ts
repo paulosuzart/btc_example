@@ -42,6 +42,7 @@ class CexioPrice implements PriceService {
         if (response.statusCode != 200) {
             console.log(response.result);
             console.log(`/last_price/${this._rmarket}/${this._lmarket}`);
+            return 0;
         }
         return response.result.lprice;
     }
