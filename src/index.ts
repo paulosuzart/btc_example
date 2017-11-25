@@ -20,7 +20,7 @@ interface CEXLastPriceResponse {
 class CexioPrice implements PriceService {
     private _lmarket: string;
     private _rmarket: string;
-    client: RestClient;
+    private client: RestClient;
 
     constructor() {
         console.log(colors.green("Creating Cex.io client"));
@@ -73,11 +73,11 @@ const appFactory = () => {
 class App {
 
     @Inject(process.env.EXCHANGE || "cex.io")
-    priceService: PriceService;
+    private priceService: PriceService;
 
-    market: string;
+    private market: string;
 
-    lastPrice: number;
+    private lastPrice: number;
 
     constructor(market: string) {
         this.market = market;
