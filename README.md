@@ -2,6 +2,8 @@
 
 To run it just clone the repo and then:
 
-`yarn`
-`yarn build`
-`node dist`
+```
+yarn
+yarn build
+node dist
+```
