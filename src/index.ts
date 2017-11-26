@@ -23,7 +23,7 @@ class CexioPrice implements PriceService {
     private client: RestClient;
 
     constructor() {
-        console.log(colors.green("Creating Cex.io client"));
+        console.log(colors.rainbow("Creating Cex.io client"));
         this.client = new RestClient("mozilla");
     }
 
@@ -77,7 +77,7 @@ class App {
 
     private market: string;
 
-    private lastPrice: number;
+    private lastPrice: number = -1;
 
     constructor(market: string) {
         this.market = market;
@@ -94,7 +94,7 @@ class App {
 
     private async query() {
         const value = await this.priceService.current();
-        if (value > this.lastPrice) {
+        if (value >= this.lastPrice) {
             console.log(colors.green(`Current price for ${this.priceService.market} is: ${value}`));
         } else {
             console.log(colors.red(`Current price for ${this.priceService.market} is: ${value}`));
